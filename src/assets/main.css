@@ -1,0 +1,30 @@
+/* src/assets/main.css */
+
+/* 1. Import the Google Fonts we need */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;500&display=swap');
+
+/* 2. A simple CSS Reset to remove default browser styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* 3. Set a base style for the body */
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif; /* Our default font */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Ensure the main app container takes full width and height */
+#app {
+  width: 100%;
+  height: 100%;
+}
