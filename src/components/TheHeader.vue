@@ -1,12 +1,12 @@
 <script setup>
-import { RouterLink } from 'vue-router'; // Import RouterLink
+import { RouterLink } from 'vue-router' // Import RouterLink
 
 // Updated navigation links to use router paths
 const navLinks = [
   { text: 'Projects', path: '/projects' }, // Changed path
-  { text: 'Resume', path: '/resume' },     // Future path
+  { text: 'Resume', path: '/resume' }, // Future path
   //{ text: 'Contact', path: '/contact' },   // Future path
-];
+]
 </script>
 
 <template>
@@ -23,7 +23,10 @@ const navLinks = [
       </ul>
     </nav>
     <div class="social-icons">
-      <a href="https://www.linkedin.com/in/meysam-pouryamehr-7482ab339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn">
+      <a
+        href="https://www.linkedin.com/in/meysam-pouryamehr-7482ab339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+        aria-label="LinkedIn"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
@@ -94,7 +97,6 @@ const navLinks = [
     </div>
   </header>
 </template>
-
 
 <style scoped>
 .main-header {
@@ -173,7 +175,6 @@ const navLinks = [
   width: 100%;
 }
 
-
 .social-icons {
   display: flex;
   align-items: center;
@@ -182,7 +183,9 @@ const navLinks = [
 
 .social-icons a {
   color: #e0e0e0;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
 .social-icons a:hover {
@@ -190,12 +193,19 @@ const navLinks = [
   transform: translateY(-3px);
 }
 
-
 @media (max-width: 768px) {
   .main-header {
+
+    position: relative;
+
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.5rem 5%;
+
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
   }
 }
 </style>
