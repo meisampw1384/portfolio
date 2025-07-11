@@ -5,28 +5,57 @@ const projects = [
   {
     title: 'Pacman',
     image: '/project-1.jpg', // Path to your image in the /public/images/ folder
-    description: 'A classic Pac-Man game built with separate frontend and backend logic, developed as a first-semester project at IUT.',
-    tags: ['C++','C'],
+    description:
+      'A classic Pac-Man game built with separate frontend and backend logic, developed as a first-semester project at IUT.',
+    tags: ['C++', 'C'],
     githubLink: 'https://github.com/meisampw1384/Pacman', // Your GitHub repo link
-    liveLink: null,   // Your live demo link (if available)
+    liveLink: null, // Your live demo link (if available)
   },
   {
     title: 'Reverse Shell',
     image: '/project-2.jpg',
-    description: 'A low-level implementation of a reverse shell in C, demonstrating core socket programming and networking concepts.',
-    tags: ['C','C++','Socket Programming','networking'],
+    description:
+      'A low-level implementation of a reverse shell in C, demonstrating core socket programming and networking concepts.',
+    tags: ['C', 'C++', 'Socket Programming', 'networking'],
     githubLink: 'https://github.com/meisampw1384/Reverse-shell',
     liveLink: null,
   },
   {
     title: 'Children of Heaven Charity Website',
     image: '/project-3.jpg',
-    description: 'A dynamic website for a student-run charity at IUT, developed collaboratively with a team using the Django framework.',
-    tags: ['Django','DjangoRestFrameWork','Python','Team Project','Charity'],
+    description:
+      'A dynamic website for a student-run charity at IUT, developed collaboratively with a team using the Django framework.',
+    tags: ['Django', 'DjangoRestFrameWork', 'Python', 'Team Project', 'Charity'],
     githubLink: null,
     liveLink: 'https://childrenofheaven.ir/',
   },
-];
+  {
+    title: 'Advanced Data Structures for Media Management',
+    image: '/Algorithm.jpg',
+    description:
+      'A C++ application for managing and searching media, utilizing custom-built data structures like Splay Trees, Tries, and Hash Tables for optimal performance.',
+    tags: ['C++', 'Data Structures', 'Algorithms'],
+    githubLink: 'https://github.com/meisampw1384/Series-Management-Project',
+    liveLink: null,
+  },
+  {
+    title: 'Spring Boot REST API for Student Management',
+    image: '/spring-boot.jpg',
+    description:
+      'A practical learning project to implement a RESTful API with Spring Boot, covering core concepts like CRUD operations, data validation, and JPA for database interaction.',
+    tags: ['Java', 'Spring Boot', 'REST API', 'JPA', 'Hibernate'],
+    githubLink: 'https://github.com/meisampw1384/SpringBootStudentApp',
+    liveLink: null,
+  },
+  {
+    title: 'Plants vs. Zombies',
+    image: 'pvz-qt.jpg',
+    description:'A recreation of the classic tower defense game, Plants vs. Zombies, built as a desktop application using C++ and the Qt framework for the graphical user interface.',
+    tags: ['Qt','C++','Socket Programming'],
+    githubLink: 'https://github.com/meisampw1384/Plants-vs-Zombies',
+    liveLink: null,
+  },
+]
 </script>
 
 <template>
@@ -45,14 +74,54 @@ const projects = [
           <h3 class="card-title">{{ project.title }}</h3>
           <p class="card-description">{{ project.description }}</p>
           <div class="card-links">
-            <a :href="project.githubLink" target="_blank" rel="noopener noreferrer" class="link-button">
+            <a
+              v-if="project.githubLink"
+              :href="project.githubLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-button"
+            >
               <!-- GitHub Icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                ></path>
+              </svg>
               <span>Code</span>
             </a>
-            <a v-if="project.liveLink" :href="project.liveLink" target="_blank" rel="noopener noreferrer" class="link-button">
+            <a
+              v-if="project.liveLink"
+              :href="project.liveLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-button"
+            >
               <!-- Live Demo Icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
               <span>Live Demo</span>
             </a>
           </div>
@@ -77,7 +146,7 @@ const projects = [
 .projects-grid {
   display: grid;
   /* Creates a responsive grid: 1 column on small screens, 2 on medium, 3 on large */
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2.5rem;
   text-align: left; /* Align text inside cards to the left */
 }
@@ -87,15 +156,17 @@ const projects = [
   background-color: rgba(30, 81, 123, 0.6); /* Semi-transparent, slightly darker blue */
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   flex-direction: column; /* Ensures content pushes links to the bottom */
 }
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
 
 .card-image-container {
