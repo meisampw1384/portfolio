@@ -21,6 +21,12 @@ const journeyItems = [
     source: 'Personal Training Project',
     link: 'https://github.com/meisampw1384/Social-Network-Simulater',
   },
+    {
+    title: 'Dockerized Django Shop',
+    source: 'Personal Training Project With Docker',
+    link: 'https://github.com/meisampw1384/django-shop-exp',
+  },
+
 ]
 </script>
 

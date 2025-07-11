@@ -55,6 +55,14 @@ const projects = [
     githubLink: 'https://github.com/meisampw1384/Plants-vs-Zombies',
     liveLink: null,
   },
+    {
+    title: 'Dockerized Django Shop' ,
+    image: '/django-docker.jpg',
+    description: 'A foundational Shop built with Django, featuring product management and user authentication, fully containerized with Docker for consistent and reproducible deployments.',
+    tags: ['Django', 'Docker', 'Python', 'MariaDB', 'Docker Compose'],
+    githubLink: 'https://github.com/meisampw1384/django-shop-exp',
+    liveLink: null,
+  },
 ]
 </script>
 
@@ -146,7 +154,7 @@ const projects = [
 .projects-grid {
   display: grid;
   /* Creates a responsive grid: 1 column on small screens, 2 on medium, 3 on large */
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
   text-align: left; /* Align text inside cards to the left */
 }
