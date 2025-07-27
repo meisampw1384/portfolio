@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router' // Import RouterLink
 // Updated navigation links to use router paths
 const navLinks = [
   { text: 'Projects', path: '/projects' }, // Changed path
-  { text: 'Resume', path: '/resume' }, // Future path
+  { text: 'Resume', path: '/resume' },
   //{ text: 'Contact', path: '/contact' },   // Future path
 ]
 </script>
