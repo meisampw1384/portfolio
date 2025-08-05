@@ -49,7 +49,7 @@ const projects = [
   },
   {
     title: 'Spring Boot Secure Task API',
-    image: '/spring-boot-jwt.png',
+    image: '/spring-boot-jwt.jpg',
     description:
       'A complete REST API for a task manager, built with Spring Boot and secured end-to-end using JWT. A hands-on project covering authentication, authorization, and best practices.',
     tags: ['Spring Boot', 'Java', 'Spring Security', 'JWT', 'JPA', 'REST API'],
