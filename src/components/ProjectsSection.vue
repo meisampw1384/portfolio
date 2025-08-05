@@ -48,17 +48,28 @@ const projects = [
     liveLink: null,
   },
   {
+    title: 'Spring Boot Secure Task API',
+    image: '/spring-boot-jwt.png',
+    description:
+      'A complete REST API for a task manager, built with Spring Boot and secured end-to-end using JWT. A hands-on project covering authentication, authorization, and best practices.',
+    tags: ['Spring Boot', 'Java', 'Spring Security', 'JWT', 'JPA', 'REST API'],
+    githubLink: 'https://github.com/meisampw1384/Simple-Task-Manager-API-with-Spring-Security-JWT',
+    liveLink: null,
+  },
+  {
     title: 'Plants vs. Zombies',
     image: 'pvz-qt.jpg',
-    description:'A recreation of the classic tower defense game, Plants vs. Zombies, built as a desktop application using C++ and the Qt framework for the graphical user interface.',
-    tags: ['Qt','C++','Socket Programming'],
+    description:
+      'A recreation of the classic tower defense game, Plants vs. Zombies, built as a desktop application using C++ and the Qt framework for the graphical user interface.',
+    tags: ['Qt', 'C++', 'Socket Programming'],
     githubLink: 'https://github.com/meisampw1384/Plants-vs-Zombies',
     liveLink: null,
   },
-    {
-    title: 'Dockerized Django Shop' ,
+  {
+    title: 'Dockerized Django Shop',
     image: '/django-docker.jpg',
-    description: 'A foundational Shop built with Django, featuring product management and user authentication, fully containerized with Docker for consistent and reproducible deployments.',
+    description:
+      'A foundational Shop built with Django, featuring product management and user authentication, fully containerized with Docker for consistent and reproducible deployments.',
     tags: ['Django', 'Docker', 'Python', 'MariaDB', 'Docker Compose'],
     githubLink: 'https://github.com/meisampw1384/django-shop-exp',
     liveLink: null,
