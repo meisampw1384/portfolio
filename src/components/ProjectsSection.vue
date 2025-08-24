@@ -57,6 +57,15 @@ const projects = [
     liveLink: null,
   },
   {
+    title: 'WebSocket Chat App',
+    image: 'websocket-chat.jpg',
+    description:
+      'A real-time chat application built with Spring Boot WebSocket, STOMP, and React. It supports private and group messaging, user presence updates, and live notifications.',
+    tags: ['Spring Boot', 'WebSocket', 'STOMP'],
+    githubLink: 'https://github.com/meisampw1384/spring-websocket-chat-demo',
+    liveLink: null,
+  },
+  {
     title: 'Plants vs. Zombies',
     image: 'pvz-qt.jpg',
     description:
