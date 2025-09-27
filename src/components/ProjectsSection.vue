@@ -4,7 +4,7 @@
 const projects = [
   {
     title: 'Pacman',
-    image: '/project-1.jpg', // Path to your image in the /public/images/ folder
+    image: '/project-1.webp', // Path to your image in the /public/images/ folder
     description:
       'A classic Pac-Man game built with separate frontend and backend logic, developed as a first-semester project at IUT.',
     tags: ['C++', 'C'],
@@ -13,7 +13,7 @@ const projects = [
   },
   {
     title: 'Reverse Shell',
-    image: '/project-2.jpg',
+    image: '/project-2.webp',
     description:
       'A low-level implementation of a reverse shell in C, demonstrating core socket programming and networking concepts.',
     tags: ['C', 'C++', 'Socket Programming', 'networking'],
@@ -22,7 +22,7 @@ const projects = [
   },
   {
     title: 'Children of Heaven Charity Website',
-    image: '/project-3.jpg',
+    image: '/project-3.webp',
     description:
       'A dynamic website for a student-run charity at IUT, developed collaboratively with a team using the Django framework.',
     tags: ['Django', 'DjangoRestFrameWork', 'Python', 'Team Project', 'Charity'],
@@ -31,7 +31,7 @@ const projects = [
   },
   {
     title: 'Advanced Data Structures for Media Management',
-    image: '/Algorithm.jpg',
+    image: '/Algorithm.webp',
     description:
       'A C++ application for managing and searching media, utilizing custom-built data structures like Splay Trees, Tries, and Hash Tables for optimal performance.',
     tags: ['C++', 'Data Structures', 'Algorithms'],
@@ -40,7 +40,7 @@ const projects = [
   },
   {
     title: 'Spring Boot REST API for Student Management',
-    image: '/spring-boot.jpg',
+    image: '/spring-boot.webp',
     description:
       'A practical learning project to implement a RESTful API with Spring Boot, covering core concepts like CRUD operations, data validation, and JPA for database interaction.',
     tags: ['Java', 'Spring Boot', 'REST API', 'JPA', 'Hibernate'],
@@ -49,7 +49,7 @@ const projects = [
   },
   {
     title: 'Spring Boot Secure Task API',
-    image: '/spring-boot-jwt.jpg',
+    image: '/spring-boot-jwt.webp',
     description:
       'A complete REST API for a task manager, built with Spring Boot and secured end-to-end using JWT. A hands-on project covering authentication, authorization, and best practices.',
     tags: ['Spring Boot', 'Java', 'Spring Security', 'JWT', 'JPA', 'REST API'],
@@ -58,7 +58,7 @@ const projects = [
   },
   {
     title: 'WebSocket Chat App',
-    image: 'websocket-chat.jpg',
+    image: 'websocket-chat.webp',
     description:
       'A real-time chat application built with Spring Boot WebSocket, STOMP, and React. It supports private and group messaging, user presence updates, and live notifications.',
     tags: ['Spring Boot', 'WebSocket', 'STOMP'],
@@ -67,7 +67,7 @@ const projects = [
   },
   {
     title: 'Plants vs. Zombies',
-    image: 'pvz-qt.jpg',
+    image: 'pvz-qt.webp',
     description:
       'A recreation of the classic tower defense game, Plants vs. Zombies, built as a desktop application using C++ and the Qt framework for the graphical user interface.',
     tags: ['Qt', 'C++', 'Socket Programming'],
@@ -76,12 +76,20 @@ const projects = [
   },
   {
     title: 'Dockerized Django Shop',
-    image: '/django-docker.jpg',
+    image: '/django-docker.webp',
     description:
       'A foundational Shop built with Django, featuring product management and user authentication, fully containerized with Docker for consistent and reproducible deployments.',
     tags: ['Django', 'Docker', 'Python', 'MariaDB', 'Docker Compose'],
     githubLink: 'https://github.com/meisampw1384/django-shop-exp',
     liveLink: null,
+  },
+  {
+    "title": "Django Chat with Redis",
+    "image": "django-chat-redis.webp",
+    "description": "A real-time one-to-one chat application built with Django Channels, WebSocket, and Redis. It features live user list updates, instant messaging, and secure authentication. This project was developed as a learning exercise to explore Django's asynchronous capabilities.",
+    "tags": ["Django", "Channels", "WebSocket", "Redis", "Real-Time"],
+    "githubLink": "https://github.com/meisampw1384/django-chat-redis",
+    "liveLink": null
   },
 ]
 </script>
@@ -90,10 +98,9 @@ const projects = [
   <section id="projects" class="projects-section">
     <h2 class="section-title">My Projects</h2>
     <div class="projects-grid">
-      <!-- We loop through the projects array using v-for -->
       <div v-for="project in projects" :key="project.title" class="project-card">
         <div class="card-image-container">
-          <img :src="project.image" :alt="'Screenshot of ' + project.title" />
+          <img :src="project.image" :alt="'Screenshot of ' + project.title"  loading="lazy"/>
         </div>
         <div class="card-content">
           <div class="card-tags">
