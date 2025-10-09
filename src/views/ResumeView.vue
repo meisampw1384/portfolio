@@ -9,9 +9,9 @@ import SkillsSection from '@/components/SkillsSection.vue'
     <header class="page-header">
       <h1>My Resume</h1>
       <p class="subtitle">A summary of my academic background and technical skills.</p>
-      <RouterLink to="/python-django-resume" class="specialized-resume-link">
+      <!-- <RouterLink to="/python-django-resume" class="specialized-resume-link">
         View My Specialized Python & Django Resume
-      </RouterLink>
+      </RouterLink> -->
     </header>
 
     <div class="resume-content">

@@ -1,4 +1,4 @@
-<!-- src/views/PythonResumeView.vue -->
+<!-- src/views/PythonResumeView.vue
 <script setup>
 import PythonJourneySection from '@/components/PythonJourneySection.vue'
 import PythonSkillsSection from '@/components/PythonSkillsSection.vue'
@@ -10,7 +10,7 @@ import PythonSkillsSection from '@/components/PythonSkillsSection.vue'
       <h1>Python & Django Resume</h1>
       <p>A detailed look at my experience and skills in the Python ecosystem.</p>
     </div>
-    <!-- Re-using the same grid layout from ResumeView -->
+    Re-using the same grid layout from ResumeView
     <div class="resume-grid">
       <PythonJourneySection />
       <PythonSkillsSection />
@@ -55,3 +55,4 @@ import PythonSkillsSection from '@/components/PythonSkillsSection.vue'
   margin: 0 auto;
 }
 </style>
+-->

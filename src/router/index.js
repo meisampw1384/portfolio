@@ -22,11 +22,11 @@ const router = createRouter({
       name: 'resume',
       component: () => import('../views/ResumeView.vue'), // Lazy-loaded
     },
-    {
-      path: '/python-django-resume',
-      name: 'python-resume',
-      component: () => import('../views/PythonResumeView.vue'),
-    },
+    // {
+    //   path: '/python-django-resume',
+    //   name: 'python-resume',
+    //   component: () => import('../views/PythonResumeView.vue'),
+    // },
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',

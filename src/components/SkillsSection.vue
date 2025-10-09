@@ -3,8 +3,8 @@
 const skillCategories = [
   { title: 'Programming Languages', skills: ['Python', 'C/C++', 'JavaScript', 'Java','HTML/CSS'] },
   { title: 'Frameworks & Libraries', skills: ['Vue.js', 'Django', 'Django Rest Framework','Spring Boot'] },
-  { title: 'Databases', skills: ['MariaDB','SQL Server'] },
-  { title: 'Tools & Technologies', skills: ['Git & GitHub', 'Docker', 'Socket Programming','Linux','Packet Tracer'] },
+  { title: 'Databases', skills: ['MongoDB','PostgreSQL','MariaDB','SQL Server'] },
+  { title: 'Tools & Technologies', skills: ['Git & GitHub', 'Docker','Redis', 'Socket Programming','Linux','Packet Tracer'] },
 ];
 </script>
 
