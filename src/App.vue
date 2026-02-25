@@ -1,14 +1,12 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import TheHeader from './components/TheHeader.vue'
-import Analytics from '@vercel/analytics/next'
 </script>
 
 <template>
   <div id="app-wrapper">
     <TheHeader />
     <RouterView />
-    <Analytics />
   </div>
 </template>
 
