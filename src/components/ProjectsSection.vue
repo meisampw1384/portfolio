@@ -1,59 +1,23 @@
 <script setup>
-// --- YOUR PROJECT DATA GOES HERE ---
-// Simply add or remove objects in this array to update your projects.
+
+
 const projects = [
-  {
-    title: 'Pacman',
-    image: '/project-1.webp', // Path to your image in the /public/images/ folder
-    description:
-      'A classic Pac-Man game built with separate frontend and backend logic, developed as a first-semester project at IUT.',
-    tags: ['C++', 'C'],
-    githubLink: 'https://github.com/meisampw1384/Pacman', // Your GitHub repo link
-    liveLink: null, // Your live demo link (if available)
-  },
-  {
-    title: 'Reverse Shell',
-    image: '/project-2.webp',
-    description:
-      'A low-level implementation of a reverse shell in C, demonstrating core socket programming and networking concepts.',
-    tags: ['C', 'C++', 'Socket Programming', 'networking'],
-    githubLink: 'https://github.com/meisampw1384/Reverse-shell',
-    liveLink: null,
-  },
   {
     title: 'Children of Heaven Charity Website',
     image: '/project-3.webp',
     description:
       'A dynamic website for a student-run charity at IUT, developed collaboratively with a team using the Django framework.',
-    tags: ['Django', 'DjangoRestFrameWork', 'Python', 'Team Project', 'Charity'],
+    tags: ['Django', 'Django Rest Framework', 'Python', 'Team Project', 'Charity'],
     githubLink: null,
     liveLink: 'https://childrenofheaven.ir/',
   },
   {
-    title: 'Advanced Data Structures for Media Management',
-    image: '/Algorithm.webp',
+    title: 'Django Chat with Redis',
+    image: 'django-chat-redis.webp',
     description:
-      'A C++ application for managing and searching media, utilizing custom-built data structures like Splay Trees, Tries, and Hash Tables for optimal performance.',
-    tags: ['C++', 'Data Structures', 'Algorithms'],
-    githubLink: 'https://github.com/meisampw1384/Series-Management-Project',
-    liveLink: null,
-  },
-  {
-    title: 'Spring Boot REST API for Student Management',
-    image: '/spring-boot.webp',
-    description:
-      'A practical learning project to implement a RESTful API with Spring Boot, covering core concepts like CRUD operations, data validation, and JPA for database interaction.',
-    tags: ['Java', 'Spring Boot', 'REST API', 'JPA', 'Hibernate'],
-    githubLink: 'https://github.com/meisampw1384/SpringBootStudentApp',
-    liveLink: null,
-  },
-  {
-    title: 'Spring Boot Secure Task API',
-    image: '/spring-boot-jwt.webp',
-    description:
-      'A complete REST API for a task manager, built with Spring Boot and secured end-to-end using JWT. A hands-on project covering authentication, authorization, and best practices.',
-    tags: ['Spring Boot', 'Java', 'Spring Security', 'JWT', 'JPA', 'REST API'],
-    githubLink: 'https://github.com/meisampw1384/Simple-Task-Manager-API-with-Spring-Security-JWT',
+      'A real-time one-to-one chat application built with Django Channels, WebSocket, and Redis. It features live user list updates, instant messaging, and secure authentication.',
+    tags: ['Django', 'Channels', 'WebSocket', 'Redis', 'Real-Time'],
+    githubLink: 'https://github.com/meisampw1384/django-chat-redis',
     liveLink: null,
   },
   {
@@ -66,41 +30,103 @@ const projects = [
     liveLink: null,
   },
   {
-    title: 'Plants vs. Zombies',
-    image: 'pvz-qt.webp',
-    description:
-      'A recreation of the classic tower defense game, Plants vs. Zombies, built as a desktop application using C++ and the Qt framework for the graphical user interface.',
-    tags: ['Qt', 'C++', 'Socket Programming'],
-    githubLink: 'https://github.com/meisampw1384/Plants-vs-Zombies',
-    liveLink: null,
-  },
-  {
     title: 'Dockerized Django Shop',
     image: '/django-docker.webp',
     description:
-      'A foundational Shop built with Django, featuring product management and user authentication, fully containerized with Docker for consistent and reproducible deployments.',
+      'A foundational shop built with Django, featuring product management and user authentication, fully containerized with Docker for consistent and reproducible deployments.',
     tags: ['Django', 'Docker', 'Python', 'MariaDB', 'Docker Compose'],
     githubLink: 'https://github.com/meisampw1384/django-shop-exp',
     liveLink: null,
   },
   {
-    "title": "Django Chat with Redis",
-    "image": "django-chat-redis.webp",
-    "description": "A real-time one-to-one chat application built with Django Channels, WebSocket, and Redis. It features live user list updates, instant messaging, and secure authentication. This project was developed as a learning exercise to explore Django's asynchronous capabilities.",
-    "tags": ["Django", "Channels", "WebSocket", "Redis", "Real-Time"],
-    "githubLink": "https://github.com/meisampw1384/django-chat-redis",
-    "liveLink": null
+    title: 'Spring Boot Secure Task API',
+    image: '/spring-boot-jwt.webp',
+    description:
+      'A complete REST API for a task manager, built with Spring Boot and secured end-to-end using JWT. Covers authentication, authorization, and best practices.',
+    tags: ['Spring Boot', 'Java', 'Spring Security', 'JWT', 'JPA', 'REST API'],
+    githubLink: 'https://github.com/meisampw1384/Simple-Task-Manager-API-with-Spring-Security-JWT',
+    liveLink: null,
+  },
+  {
+    title: 'Spring Boot REST API for Student Management',
+    image: '/spring-boot.webp',
+    description:
+      'A RESTful API with Spring Boot covering CRUD operations, data validation, and JPA for database interaction.',
+    tags: ['Java', 'Spring Boot', 'REST API', 'JPA', 'Hibernate'],
+    githubLink: 'https://github.com/meisampw1384/SpringBootStudentApp',
+    liveLink: null,
+  },
+  {
+    title: 'Advanced Data Structures for Media Management',
+    image: '/Algorithm.webp',
+    description:
+      'A C++ application for managing and searching media, utilizing custom-built data structures like Splay Trees, Tries, and Hash Tables for optimal performance.',
+    tags: ['C++', 'Data Structures', 'Algorithms'],
+    githubLink: 'https://github.com/meisampw1384/Series-Management-Project',
+    liveLink: null,
+  },
+  {
+    title: 'Plants vs. Zombies',
+    image: 'pvz-qt.webp',
+    description:
+      'A recreation of the classic tower defense game built as a desktop application using C++ and the Qt framework.',
+    tags: ['Qt', 'C++', 'Socket Programming'],
+    githubLink: 'https://github.com/meisampw1384/Plants-vs-Zombies',
+    liveLink: null,
+  },
+  {
+    title: 'Reverse Shell',
+    image: '/project-2.webp',
+    description:
+      'A low-level implementation of a reverse shell in C, demonstrating core socket programming and networking concepts.',
+    tags: ['C', 'C++', 'Socket Programming', 'Networking'],
+    githubLink: 'https://github.com/meisampw1384/Reverse-shell',
+    liveLink: null,
+  },
+  {
+    title: 'Pacman',
+    image: '/project-1.webp',
+    description:
+      'A classic Pac-Man game built with separate frontend and backend logic, developed as a first-semester project at IUT.',
+    tags: ['C++', 'C'],
+    githubLink: 'https://github.com/meisampw1384/Pacman',
+    liveLink: null,
   },
 ]
+
+function handleTilt(event) {
+  const card = event.currentTarget
+  const rect = card.getBoundingClientRect()
+  const x = event.clientX - rect.left
+  const y = event.clientY - rect.top
+  const centerX = rect.width / 2
+  const centerY = rect.height / 2
+  const rotateX = ((y - centerY) / centerY) * -6
+  const rotateY = ((x - centerX) / centerX) * 6
+
+  card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`
+}
+
+function resetTilt(event) {
+  const card = event.currentTarget
+  card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)'
+}
 </script>
 
 <template>
   <section id="projects" class="projects-section">
-    <h2 class="section-title">My Projects</h2>
+    <h2 class="section-title" v-animate="'fade-up'">My Projects</h2>
     <div class="projects-grid">
-      <div v-for="project in projects" :key="project.title" class="project-card">
+      <div
+        v-for="(project, i) in projects"
+        :key="project.title"
+        class="project-card"
+        v-animate="{ animation: 'fade-up', delay: (i % 3) * 100 }"
+        @mousemove="handleTilt"
+        @mouseleave="resetTilt"
+      >
         <div class="card-image-container">
-          <img :src="project.image" :alt="'Screenshot of ' + project.title"  loading="lazy"/>
+          <img :src="project.image" :alt="'Screenshot of ' + project.title" loading="lazy" />
         </div>
         <div class="card-content">
           <div class="card-tags">
@@ -116,11 +142,10 @@ const projects = [
               rel="noopener noreferrer"
               class="link-button"
             >
-              <!-- GitHub Icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -141,11 +166,10 @@ const projects = [
               rel="noopener noreferrer"
               class="link-button"
             >
-              <!-- Live Demo Icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -174,34 +198,37 @@ const projects = [
 .section-title {
   font-family: 'Lora', serif;
   font-size: 2.5rem;
-  margin-bottom: 4rem;
-  color: #fff;
+  margin-bottom: 3.5rem;
+  color: var(--text-strong);
 }
 
 .projects-grid {
   display: grid;
-  /* Creates a responsive grid: 1 column on small screens, 2 on medium, 3 on large */
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
-  text-align: left; /* Align text inside cards to the left */
+  text-align: left;
 }
 
-/* --- Project Card Styling --- */
+/* --- Project Card with 3D Tilt --- */
 .project-card {
-  background-color: rgba(30, 81, 123, 0.6); /* Semi-transparent, slightly darker blue */
-  border-radius: 12px;
+  background: var(--card-gradient);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border-1);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
   transition:
-    transform 0.3s ease,
+    transform 0.15s ease-out,
     box-shadow 0.3s ease;
   display: flex;
-  flex-direction: column; /* Ensures content pushes links to the bottom */
+  flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-2);
 }
 
 .card-image-container {
@@ -213,18 +240,18 @@ const projects = [
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .project-card:hover .card-image-container img {
-  transform: scale(1.05); /* Zoom effect on hover */
+  transform: scale(1.05);
 }
 
 .card-content {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* This makes the content area take up available space */
+  flex-grow: 1;
 }
 
 .card-tags {
@@ -235,46 +262,48 @@ const projects = [
 }
 
 .tag {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #cde4f7;
-  font-size: 0.75rem;
+  background: var(--surface-3);
+  color: var(--accent-text);
+  font-size: 0.72rem;
   font-weight: 500;
   padding: 4px 10px;
   border-radius: 20px;
+  letter-spacing: 0.02em;
 }
 
 .card-title {
   font-family: 'Lora', serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-bottom: 0.75rem;
-  color: #fff;
+  color: var(--text-strong);
 }
 
 .card-description {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
-  flex-grow: 1; /* Pushes the links to the bottom */
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  flex-grow: 1;
   margin-bottom: 1.5rem;
 }
 
 .card-links {
   display: flex;
-  gap: 1rem;
-  margin-top: auto; /* Pushes links to the very bottom */
+  gap: 1.25rem;
+  margin-top: auto;
 }
 
 .link-button {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  color: #fff;
+  gap: 0.4rem;
+  color: var(--text-subtle);
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 
 .link-button:hover {
-  color: #82c3f1; /* A brighter blue for hover */
+  color: var(--accent);
 }
 </style>

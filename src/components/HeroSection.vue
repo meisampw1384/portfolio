@@ -1,40 +1,61 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+import TypingEffect from './TypingEffect.vue'
+
+const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Lifelong Learner']
+</script>
+
 <template>
-  <!-- We add a class for the entry animation -->
-  <section class="hero-section fade-in">
-    <div class="image-wrapper">
-      <div class="image-container">
-        <img src="/profile-pic.jpg" alt="A photo of Meysam Pouryamehr" />
-      </div>
-      <!-- Decorative graphical elements -->
-      <div class="dots-decorator"></div>
-      <div class="circle-decorator-1"></div>
-      <div class="circle-decorator-2"></div>
+  <section class="hero-section">
+    <!-- Animated mesh gradient background -->
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+      <div class="noise-overlay"></div>
     </div>
 
-    <div class="text-container">
-      <h1>A curious mind exploring the world of code.</h1>
-      <p class="subtitle">
-        I'm Meysam Pouryamehr, a Computer Engineering student at Isfahan University of
-        Technology. I'm passionate about turning complex ideas into beautiful and intuitive digital
-        experiences.
-      </p>
-      <RouterLink to="/projects" class="cta-button">
-        View My Work
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+    <div class="hero-content">
+      <div class="image-wrapper">
+        <div class="image-container">
+          <img src="/profile-pic.jpg" alt="A photo of Meysam Pouryamehr" />
+        </div>
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="dots-decorator"></div>
+      </div>
+
+      <div class="text-container">
+        <h1 v-animate="'fade-up'">A curious mind exploring the world of code.</h1>
+        <p class="subtitle" v-animate="{ animation: 'fade-up', delay: 150 }">
+          I'm Meysam Pouryamehr, a Computer Engineering student at Isfahan University of
+          Technology.
+        </p>
+        <p class="typing-line" v-animate="{ animation: 'fade-up', delay: 300 }">
+          I'm a&nbsp;<TypingEffect :words="roles" />
+        </p>
+        <RouterLink
+          to="/projects"
+          class="cta-button"
+          v-animate="{ animation: 'zoom-in', delay: 450 }"
         >
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </RouterLink>
+          View My Work
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </RouterLink>
+      </div>
     </div>
   </section>
 </template>
@@ -42,45 +63,112 @@
 <style scoped>
 /* --- Main Section Layout --- */
 .hero-section {
+  position: relative;
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center them horizontally */
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  padding: 6rem 0; /* More vertical space */
+  padding: 8rem 0 6rem 0;
+  overflow: hidden;
 }
 
-/* --- Entry Animation --- */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* --- Animated Mesh Gradient Background --- */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: var(--orb-opacity);
+  animation: float 12s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgb(56 152 236 / 0.6), transparent 70%);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgb(0 188 212 / 0.4), transparent 70%);
+  top: 50%;
+  right: -5%;
+  animation-delay: -4s;
+  animation-duration: 15s;
+}
+
+.orb-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgb(99 102 241 / 0.35), transparent 70%);
+  bottom: -10%;
+  left: 30%;
+  animation-delay: -8s;
+  animation-duration: 18s;
+}
+
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  33% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 15px) scale(0.95);
   }
 }
 
-.fade-in {
-  /* Apply the animation */
-  animation: fadeIn 1s ease-in-out;
+/* --- Content on top of background --- */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* --- Image Styling with Decorators --- */
+/* --- Image Styling --- */
 .image-wrapper {
   position: relative;
   margin-bottom: 3rem;
 }
 
 .image-container {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%; /* A circular image looks more modern */
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
   overflow: hidden;
-  border: 5px solid #fff; /* A clean white border */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
-  position: relative; /* To keep it on top of decorators */
+  border: 4px solid var(--border-strong);
+  box-shadow:
+    var(--shadow-md),
+    var(--shadow-ring);
+  position: relative;
   z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.image-container:hover {
+  transform: scale(1.03);
 }
 
 .image-container img {
@@ -89,39 +177,51 @@
   object-fit: cover;
 }
 
-/* --- Decorative Elements --- */
+/* Animated rings around image */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border-2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.ring-1 {
+  width: 270px;
+  height: 270px;
+  animation-delay: 0s;
+}
+
+.ring-2 {
+  width: 320px;
+  height: 320px;
+  animation-delay: 1.5s;
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
 .dots-decorator {
   position: absolute;
   width: 80px;
   height: 80px;
   top: -20px;
   left: -40px;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
-  background-size: 15px 15px;
+  background-image: radial-gradient(circle, var(--dot-decor) 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
   z-index: 1;
-}
-
-.circle-decorator-1,
-.circle-decorator-2 {
-  position: absolute;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  z-index: 1;
-}
-
-.circle-decorator-1 {
-  width: 60px;
-  height: 60px;
-  bottom: -20px;
-  right: -30px;
-}
-
-.circle-decorator-2 {
-  width: 20px;
-  height: 20px;
-  top: 40px;
-  right: -35px;
-  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* --- Text Styling --- */
@@ -135,35 +235,47 @@
   font-weight: 700;
   line-height: 1.3;
   margin: 0;
-  color: #fff;
+  color: var(--text-strong);
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 1.5rem 0 2.5rem 0; /* top, horizontal, bottom */
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin: 1.25rem 0 0.5rem 0;
+  line-height: 1.7;
 }
 
-/* --- Call-to-Action Button --- */
+.typing-line {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin: 0.75rem 0 2.5rem 0;
+  min-height: 1.6em;
+}
+
+/* --- CTA Button --- */
 .cta-button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #fff;
-  color: #1a5f91; /* The main blue color */
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-strong);
+  color: var(--text-strong);
   font-size: 1rem;
   font-weight: 500;
-  padding: 12px 24px;
-  border-radius: 50px; /* A pill-shaped button */
+  padding: 14px 32px;
+  border-radius: 50px;
   text-decoration: none;
   transition:
     transform 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-sm);
+  background: var(--glass-bg-hover);
 }
 
 .cta-button svg {
@@ -174,13 +286,33 @@
   transform: translateX(4px);
 }
 
-/* --- Responsive Design Adjustments --- */
+/* --- Responsive --- */
 @media (max-width: 768px) {
-  .text-container h1 {
-    font-size: 2.2rem;
+  .hero-section {
+    padding: 5rem 0 4rem 0;
   }
+
+  .text-container h1 {
+    font-size: 2rem;
+  }
+
   .subtitle {
     font-size: 1rem;
+  }
+
+  .image-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .ring-1 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .ring-2 {
+    width: 260px;
+    height: 260px;
   }
 }
 </style>

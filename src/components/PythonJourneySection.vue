@@ -80,7 +80,8 @@ const journeyItems = [
   font-family: 'Lora', serif;
   font-size: 1.8rem;
   margin-bottom: 2rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-strong);
+  border-bottom: 2px solid var(--border-3);
   padding-bottom: 0.5rem;
 }
 
@@ -98,8 +99,8 @@ const journeyItems = [
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #fff;
-  border: 2px solid #1a5f91;
+  background-color: var(--timeline-dot);
+  border: 2px solid var(--accent);
   z-index: 1;
 }
 
@@ -110,7 +111,7 @@ const journeyItems = [
   top: 18px;
   height: 100%; /* Line will connect to the next item */
   width: 2px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--border-3);
 }
 
 .timeline-item.is-last::after {
@@ -120,12 +121,12 @@ const journeyItems = [
 .item-title {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-strong);
   margin-bottom: 0.25rem;
 }
 .item-subtitle {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text);
   margin-bottom: 1rem;
 }
 .item-link-button {
@@ -133,10 +134,10 @@ const journeyItems = [
   align-items: center;
   gap: 0.5rem;
   padding: 6px 14px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--surface-2);
+  border: 1px solid var(--border-3);
   border-radius: 50px;
-  color: #cde4f7;
+  color: var(--text-link);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -144,9 +145,9 @@ const journeyItems = [
 }
 
 .item-link-button:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: #fff;
-  color: #fff;
+  background-color: var(--surface-2-hover);
+  border-color: var(--border-strong);
+  color: var(--text-link-hover);
 }
 .item-link-button:hover svg {
   transform: translateX(3px);

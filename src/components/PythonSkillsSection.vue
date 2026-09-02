@@ -29,7 +29,8 @@ const skillCategories = [
   font-family: 'Lora', serif;
   font-size: 1.8rem;
   margin-bottom: 2rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-strong);
+  border-bottom: 2px solid var(--border-3);
   padding-bottom: 0.5rem;
 }
 
@@ -42,7 +43,7 @@ const skillCategories = [
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text);
 }
 .skills-list {
   display: flex;
@@ -52,13 +53,13 @@ const skillCategories = [
   padding: 0;
 }
 .skill-item {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--surface-3);
   padding: 8px 16px;
   border-radius: 8px;
   font-size: 0.95rem;
   transition: background-color 0.3s ease;
 }
 .skill-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--surface-3-hover);
 }
 </style>

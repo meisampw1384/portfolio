@@ -1,29 +1,207 @@
 /* src/assets/main.css */
 
-/* 1. Import the Google Fonts we need */
+/* 1. Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Poppins:wght@400;500&display=swap');
 
-/* 2. A simple CSS Reset to remove default browser styles */
+/* 2. Theme tokens
+   The active theme lives on <html data-theme="dark|light">.
+   It is set before first paint by the inline script in index.html
+   and toggled at runtime by src/composables/useTheme.js */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Backgrounds */
+  --bg: #0c2d48;
+  --header-bg: rgb(8 25 45 / 0.75);
+
+  /* Text */
+  --text-strong: #ffffff;
+  --text: rgb(255 255 255 / 0.9);
+  --text-muted: rgb(255 255 255 / 0.75);
+  --text-subtle: rgb(255 255 255 / 0.6);
+  --text-faint: rgb(255 255 255 / 0.45);
+  --text-ghost: rgb(255 255 255 / 0.3);
+
+  /* Surfaces: 1 = cards, 2 = chips / hover fills, 3 = solid chips */
+  --surface-1: rgb(255 255 255 / 0.04);
+  --surface-1-hover: rgb(255 255 255 / 0.07);
+  --surface-2: rgb(255 255 255 / 0.06);
+  --surface-2-hover: rgb(255 255 255 / 0.12);
+  --surface-3: rgb(255 255 255 / 0.1);
+  --surface-3-hover: rgb(255 255 255 / 0.2);
+
+  /* Borders */
+  --border-soft: rgb(255 255 255 / 0.06);
+  --border-1: rgb(255 255 255 / 0.08);
+  --border-2: rgb(255 255 255 / 0.15);
+  --border-3: rgb(255 255 255 / 0.2);
+  --border-strong: rgb(255 255 255 / 0.3);
+
+  /* Accents */
+  --accent: #3898ec;
+  --accent-2: #00bcd4;
+  --accent-soft: rgb(56 152 236 / 0.15);
+  --accent-glow: rgb(56 152 236 / 0.4);
+  --accent-text: #8ec5f6;
+  --text-link: #cde4f7;
+  --text-link-hover: #ffffff;
+
+  /* Status */
+  --success: #28a745;
+  --danger: #ff4d4f;
+
+  /* Composite fills */
+  --card-gradient: linear-gradient(135deg, rgb(30 81 123 / 0.5), rgb(20 60 100 / 0.4));
+  --glass-bg: linear-gradient(135deg, rgb(255 255 255 / 0.15), rgb(255 255 255 / 0.05));
+  --glass-bg-hover: linear-gradient(135deg, rgb(255 255 255 / 0.25), rgb(255 255 255 / 0.1));
+
+  /* Shadows */
+  --card-shadow: none;
+  --shadow-sm: 0 4px 12px rgb(0 0 0 / 0.2);
+  --shadow-md: 0 10px 30px rgb(0 0 0 / 0.25);
+  --shadow-lg: 0 20px 50px rgb(0 0 0 / 0.35);
+  --shadow-ring: 0 0 0 8px rgb(255 255 255 / 0.05);
+
+  /* Decoration */
+  --orb-opacity: 0.5;
+  --dot-decor: rgb(255 255 255 / 0.25);
+  --timeline-dot: #ffffff;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f5f8fc;
+  --header-bg: rgb(255 255 255 / 0.8);
+
+  --text-strong: #0a2138;
+  --text: rgb(12 45 72 / 0.92);
+  --text-muted: rgb(12 45 72 / 0.78);
+  --text-subtle: rgb(12 45 72 / 0.62);
+  --text-faint: rgb(12 45 72 / 0.5);
+  --text-ghost: rgb(12 45 72 / 0.35);
+
+  --surface-1: #ffffff;
+  --surface-1-hover: #ffffff;
+  --surface-2: rgb(12 45 72 / 0.05);
+  --surface-2-hover: rgb(12 45 72 / 0.09);
+  --surface-3: rgb(12 45 72 / 0.08);
+  --surface-3-hover: rgb(12 45 72 / 0.14);
+
+  --border-soft: rgb(12 45 72 / 0.08);
+  --border-1: rgb(12 45 72 / 0.1);
+  --border-2: rgb(12 45 72 / 0.18);
+  --border-3: rgb(12 45 72 / 0.15);
+  --border-strong: rgb(12 45 72 / 0.25);
+
+  --accent: #1b6fc4;
+  --accent-2: #0e93aa;
+  --accent-soft: rgb(27 111 196 / 0.12);
+  --accent-glow: rgb(27 111 196 / 0.3);
+  --accent-text: #175d9e;
+  --text-link: #1b6fc4;
+  --text-link-hover: #0a2138;
+
+  --success: #1e7e34;
+  --danger: #d32f2f;
+
+  --card-gradient: linear-gradient(135deg, #ffffff, #f3f7fc);
+  --glass-bg: linear-gradient(135deg, rgb(12 45 72 / 0.06), rgb(12 45 72 / 0.02));
+  --glass-bg-hover: linear-gradient(135deg, rgb(12 45 72 / 0.1), rgb(12 45 72 / 0.04));
+
+  --card-shadow: 0 2px 12px rgb(12 45 72 / 0.06);
+  --shadow-sm: 0 4px 12px rgb(12 45 72 / 0.08);
+  --shadow-md: 0 10px 30px rgb(12 45 72 / 0.1);
+  --shadow-lg: 0 20px 40px rgb(12 45 72 / 0.14);
+  --shadow-ring: 0 0 0 8px rgb(12 45 72 / 0.04);
+
+  --orb-opacity: 0.28;
+  --dot-decor: rgb(12 45 72 / 0.2);
+}
+
+/* 3. CSS Reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-weight: normal;
 }
 
-/* 3. Set a base style for the body */
+/* 4. Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
   line-height: 1.6;
-  font-family: 'Poppins', sans-serif; /* Our default font */
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 4. Ensure the main app container takes full width and height */
+/* 5. Theme switch animation (class is added for the duration of a toggle) */
+.theme-anim,
+.theme-anim *,
+.theme-anim *::before,
+.theme-anim *::after {
+  transition:
+    background-color 0.25s ease,
+    background-image 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .theme-anim,
+  .theme-anim *,
+  .theme-anim *::before,
+  .theme-anim *::after {
+    transition: none;
+  }
+}
+
+/* 6. Selection styling */
+::selection {
+  background-color: var(--accent-glow);
+  color: var(--text-strong);
+}
+
+/* 7. Focus visibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 8. Scrollbar styling (webkit) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* 9. App container */
 #app {
   width: 100%;
   height: 100%;

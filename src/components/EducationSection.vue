@@ -25,7 +25,8 @@ const education = {
   font-family: 'Lora', serif;
   font-size: 1.8rem;
   margin-bottom: 2rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-strong);
+  border-bottom: 2px solid var(--border-3);
   padding-bottom: 0.5rem;
 }
 
@@ -43,8 +44,8 @@ const education = {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #fff;
-  border: 2px solid #1a5f91;
+  background-color: var(--timeline-dot);
+  border: 2px solid var(--accent);
 }
 
 .timeline-item::after {
@@ -54,10 +55,26 @@ const education = {
   top: 18px;
   bottom: 0;
   width: 2px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--border-3);
 }
 
-.item-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem; }
-.item-subtitle { font-size: 1rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 0.25rem; }
-.item-duration { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 1rem; }
+.item-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin-bottom: 0.25rem;
+}
+.item-subtitle {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+.item-duration {
+  font-size: 0.9rem;
+  color: var(--text-subtle);
+  margin-bottom: 1rem;
+}
+.item-description {
+  color: var(--text-muted);
+}
 </style>

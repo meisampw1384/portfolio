@@ -1,11 +1,16 @@
 <script setup>
-// Skill data is local to this component
 const skillCategories = [
-  { title: 'Programming Languages', skills: ['Python', 'C/C++', 'JavaScript', 'Java','HTML/CSS'] },
-  { title: 'Frameworks & Libraries', skills: ['Vue.js', 'Django', 'Django Rest Framework','Spring Boot'] },
-  { title: 'Databases', skills: ['MongoDB','PostgreSQL','MariaDB','SQL Server'] },
-  { title: 'Tools & Technologies', skills: ['Git & GitHub', 'Docker','Redis', 'Socket Programming','Linux','Packet Tracer'] },
-];
+  { title: 'Programming Languages', skills: ['Python', 'C/C++', 'JavaScript', 'Java', 'Go', 'HTML/CSS'] },
+  {
+    title: 'Frameworks & Libraries',
+    skills: ['Vue.js', 'React', 'Django', 'Django Rest Framework', 'Spring Boot', 'FastAPI'],
+  },
+  { title: 'Databases', skills: ['MongoDB', 'PostgreSQL', 'MariaDB', 'SQL Server'] },
+  {
+    title: 'Tools & Technologies',
+    skills: ['Git & GitHub', 'Docker', 'Redis', 'gRPC', 'Socket Programming', 'Linux'],
+  },
+]
 </script>
 
 <template>
@@ -29,13 +34,41 @@ const skillCategories = [
   font-family: 'Lora', serif;
   font-size: 1.8rem;
   margin-bottom: 2rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-strong);
+  border-bottom: 2px solid var(--border-3);
   padding-bottom: 0.5rem;
 }
 
-.skills-container { display: flex; flex-direction: column; gap: 2rem; }
-.category-title { font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem; color: rgba(255, 255, 255, 0.9); }
-.skills-list { display: flex; flex-wrap: wrap; gap: 0.75rem; list-style: none; padding: 0; }
-.skill-item { background-color: rgba(255, 255, 255, 0.1); padding: 8px 16px; border-radius: 8px; font-size: 0.95rem; transition: background-color 0.3s ease; }
-.skill-item:hover { background-color: rgba(255, 255, 255, 0.2); }
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+}
+
+.skill-item {
+  background-color: var(--surface-3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.skill-item:hover {
+  background-color: var(--surface-3-hover);
+}
 </style>

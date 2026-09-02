@@ -1,9 +1,27 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meysam Pouryameher</title>
+    <meta name="description" content="Meysam Pouryamehr — Computer Engineering student at IUT, passionate about backend development and building digital experiences.">
+    <title>Meysam Pouryamehr — Portfolio</title>
+    <!-- Resolve the theme before first paint so there is no flash of the wrong colors. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark'
+          document.documentElement.dataset.theme = theme
+        } catch (e) {
+          document.documentElement.dataset.theme = 'dark'
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>
