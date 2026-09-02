@@ -62,7 +62,7 @@ const items = [
 
 .items-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 1rem;
 }
 
@@ -108,5 +108,34 @@ const items = [
   font-size: 0.93rem;
   color: var(--text);
   line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .currently-section {
+    padding: 0 0 1rem 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .items-grid {
+    gap: 0.75rem;
+  }
+
+  .item-card {
+    padding: 1rem 1.1rem;
+    gap: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .item-icon {
+    font-size: 1.4rem;
+  }
+
+  .item-text {
+    font-size: 0.88rem;
+  }
 }
 </style>

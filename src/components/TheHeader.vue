@@ -289,5 +289,55 @@ const navLinks = [
     -webkit-backdrop-filter: none;
     border-bottom: none;
   }
+
+  .logo a {
+    font-size: 1.45rem;
+  }
+
+  .main-nav ul {
+    gap: 1.75rem;
+  }
+
+  /* Bigger touch targets without changing the visual size of the text/icons */
+  .main-nav a {
+    display: inline-block;
+    padding: 6px 4px 8px;
+  }
+
+  .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icons {
+    gap: 0.5rem;
+  }
+
+  .header-actions {
+    gap: 0.75rem;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-header {
+    gap: 1rem;
+    padding: 1.25rem 5%;
+  }
+
+  .logo a {
+    font-size: 1.3rem;
+  }
+
+  .main-nav ul {
+    gap: 1.25rem;
+  }
 }
 </style>

@@ -95,6 +95,11 @@ const projects = [
 ]
 
 function handleTilt(event) {
+  // Pointer-based tilt only makes sense with a real hovering pointer.
+  // On touch screens a tap fires mousemove without a matching mouseleave,
+  // which would leave the card stuck at an angle.
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+
   const card = event.currentTarget
   const rect = card.getBoundingClientRect()
   const x = event.clientX - rect.left
@@ -109,7 +114,7 @@ function handleTilt(event) {
 
 function resetTilt(event) {
   const card = event.currentTarget
-  card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)'
+  card.style.transform = ''
 }
 </script>
 
@@ -204,7 +209,8 @@ function resetTilt(event) {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* min() keeps the 320px floor from overflowing viewports narrower than that */
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: 2.5rem;
   text-align: left;
 }
@@ -305,5 +311,50 @@ function resetTilt(event) {
 
 .link-button:hover {
   color: var(--accent);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .projects-grid {
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .projects-grid {
+    gap: 1.5rem;
+  }
+
+  .card-content {
+    padding: 1.25rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-description {
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Keep both links comfortably tappable on one row */
+  .card-links {
+    gap: 1rem;
+  }
+
+  .link-button {
+    padding: 6px 0;
+  }
 }
 </style>

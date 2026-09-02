@@ -43,4 +43,11 @@ import ProjectsSection from '@/components/ProjectsSection.vue'
   padding-top: 4rem;
   padding-bottom: 6rem;
 }
+
+@media (max-width: 600px) {
+  .projects-section {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+}
 </style>

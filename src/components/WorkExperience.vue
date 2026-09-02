@@ -140,6 +140,11 @@ const experiences = [
   margin-bottom: 0.5rem;
 }
 
+/* Prevents the role/company block from squeezing the period out of the card */
+.card-header > div {
+  min-width: 0;
+}
+
 .role {
   font-family: 'Lora', serif;
   font-size: 1.15rem;
@@ -182,5 +187,36 @@ const experiences = [
   padding: 3px 10px;
   border-radius: 20px;
   letter-spacing: 0.02em;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .column-title {
+    font-size: 1.55rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-item {
+    padding-left: 1.75rem;
+    padding-bottom: 2rem;
+  }
+
+  .timeline-card {
+    padding: 1rem 1.1rem;
+  }
+
+  /* Stack the period under the role so neither gets clipped */
+  .card-header {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .period {
+    white-space: normal;
+  }
+
+  .role {
+    font-size: 1.05rem;
+  }
 }
 </style>

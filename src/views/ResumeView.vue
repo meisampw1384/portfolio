@@ -62,7 +62,7 @@ h1 {
 
 .resume-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 4rem;
 }
 
@@ -74,7 +74,31 @@ h1 {
 
 @media (max-width: 820px) {
   .resume-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .resume-page {
+    padding: 2.5rem 5%;
+  }
+
+  .page-header {
+    margin-bottom: 2.5rem;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .resume-left {
+    gap: 2.5rem;
   }
 }
 </style>

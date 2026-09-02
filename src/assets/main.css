@@ -132,6 +132,13 @@
 /* 4. Global styles */
 html {
   scroll-behavior: smooth;
+  /* Stop mobile browsers from inflating text in landscape */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Decorative blurred orbs extend past the layout; clip them at the viewport
+     instead of letting them create a horizontal scrollbar on narrow screens.
+     Set on <html> (not body) so the sticky header keeps working. */
+  overflow-x: hidden;
 }
 
 body {
@@ -143,6 +150,30 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Media and embeds never exceed their container on small screens */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+/* Long URLs / unbroken words should wrap rather than widen the page */
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+a {
+  overflow-wrap: break-word;
 }
 
 /* 5. Theme switch animation (class is added for the duration of a toggle) */

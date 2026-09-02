@@ -145,6 +145,7 @@ const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Life
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 /* --- Image Styling --- */
@@ -227,6 +228,7 @@ const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Life
 /* --- Text Styling --- */
 .text-container {
   max-width: 700px;
+  width: 100%;
 }
 
 .text-container h1 {
@@ -289,7 +291,7 @@ const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Life
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 5rem 0 4rem 0;
+    padding: 4rem 0 3.5rem 0;
   }
 
   .text-container h1 {
@@ -300,9 +302,18 @@ const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Life
     font-size: 1rem;
   }
 
+  .typing-line {
+    font-size: 1.05rem;
+  }
+
+  .image-wrapper {
+    margin-bottom: 2.5rem;
+  }
+
   .image-container {
     width: 180px;
     height: 180px;
+    border-width: 3px;
   }
 
   .ring-1 {
@@ -313,6 +324,75 @@ const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Life
   .ring-2 {
     width: 260px;
     height: 260px;
+  }
+
+  /* Smaller orbs so the blur does not wash out the whole screen */
+  .orb-1 {
+    width: 320px;
+    height: 320px;
+  }
+
+  .orb-2 {
+    width: 260px;
+    height: 260px;
+  }
+
+  .orb-3 {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 3rem 0 3rem 0;
+  }
+
+  .text-container h1 {
+    font-size: 1.65rem;
+    line-height: 1.35;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+
+  .typing-line {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .image-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .image-container {
+    width: 148px;
+    height: 148px;
+  }
+
+  .ring-1 {
+    width: 184px;
+    height: 184px;
+  }
+
+  .ring-2 {
+    width: 216px;
+    height: 216px;
+  }
+
+  .dots-decorator {
+    width: 60px;
+    height: 60px;
+    top: -12px;
+    left: -24px;
+    background-size: 10px 10px;
+  }
+
+  .cta-button {
+    padding: 12px 26px;
+    font-size: 0.95rem;
   }
 }
 </style>

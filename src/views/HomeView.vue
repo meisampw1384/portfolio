@@ -121,7 +121,9 @@ const featuredProjects = [
 /* --- Bento Grid --- */
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  /* minmax(0, …) keeps wide card content from forcing the tracks
+     past the viewport width on narrow screens */
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 1.25rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -129,6 +131,7 @@ const featuredProjects = [
 }
 
 .bento-card {
+  min-width: 0;
   background: var(--surface-1);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-1);
@@ -179,6 +182,7 @@ const featuredProjects = [
 
 .about-stats {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 
@@ -304,7 +308,7 @@ const featuredProjects = [
 /* --- Responsive --- */
 @media (max-width: 900px) {
   .bento-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .bento-about,
@@ -312,6 +316,48 @@ const featuredProjects = [
   .bento-projects,
   .bento-currently {
     grid-column: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .bento-grid {
+    gap: 1rem;
+    padding: 1.5rem 0 4rem 0;
+  }
+
+  .bento-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .bento-currently {
+    padding: 1.25rem;
+  }
+
+  .about-stats {
+    gap: 1.25rem 1.75rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .featured-item {
+    gap: 0.75rem;
+    padding: 0.6rem;
+  }
+
+  .featured-thumb {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Let long titles wrap instead of being cut off mid-word */
+  .featured-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.35;
   }
 }
 </style>

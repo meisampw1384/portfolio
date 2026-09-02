@@ -88,4 +88,34 @@ const techItems = [
   color: var(--text);
   white-space: nowrap;
 }
+
+@media (max-width: 600px) {
+  .tech-stack-section {
+    padding: 0.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tech-grid {
+    gap: 0.5rem;
+  }
+
+  .tech-item {
+    padding: 0.5rem 0.85rem;
+    gap: 0.45rem;
+    border-radius: 8px;
+  }
+
+  .tech-name {
+    font-size: 0.82rem;
+  }
+
+  .tech-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
 </style>

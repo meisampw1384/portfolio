@@ -77,4 +77,23 @@ const education = {
 .item-description {
   color: var(--text-muted);
 }
+
+@media (max-width: 600px) {
+  .column-title {
+    font-size: 1.55rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline-item {
+    padding-left: 1.75rem;
+  }
+
+  .item-title {
+    font-size: 1.1rem;
+  }
+
+  .item-subtitle {
+    font-size: 0.95rem;
+  }
+}
 </style>

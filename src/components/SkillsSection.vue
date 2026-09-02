@@ -71,4 +71,29 @@ const skillCategories = [
 .skill-item:hover {
   background-color: var(--surface-3-hover);
 }
+
+@media (max-width: 600px) {
+  .column-title {
+    font-size: 1.55rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .skills-container {
+    gap: 1.5rem;
+  }
+
+  .category-title {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .skills-list {
+    gap: 0.5rem;
+  }
+
+  .skill-item {
+    padding: 7px 13px;
+    font-size: 0.88rem;
+  }
+}
 </style>
