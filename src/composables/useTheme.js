@@ -45,18 +45,52 @@ function apply(next, { animate = false } = {}) {
 export function useTheme() {
   const isDark = computed(() => theme.value === 'dark')
 
-  function setTheme(next) {
+  function setTheme(next, origin = null) {
     if (!VALID.includes(next)) return
     try {
       localStorage.setItem(STORAGE_KEY, next)
     } catch {
       // Private mode / storage disabled: the theme still applies for this session.
     }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    // Circular wipe expanding from the toggle button, via the View Transitions API.
+    if (document.startViewTransition && !reduceMotion) {
+      const x = origin?.x ?? window.innerWidth / 2
+      const y = origin?.y ?? window.innerHeight / 2
+      const radius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      )
+      const transition = document.startViewTransition(() => {
+        theme.value = next
+        document.documentElement.dataset.theme = next
+      })
+      transition.ready
+        .then(() => {
+          document.documentElement.animate(
+            {
+              clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`],
+            },
+            {
+              duration: 450,
+              easing: 'ease-in-out',
+              pseudoElement: '::view-transition-new(root)',
+            }
+          )
+        })
+        .catch(() => {})
+      return
+    }
+
     apply(next, { animate: true })
   }
 
-  function toggleTheme() {
-    setTheme(isDark.value ? 'light' : 'dark')
+  function toggleTheme(event) {
+    const origin =
+      event && typeof event.clientX === 'number' ? { x: event.clientX, y: event.clientY } : null
+    setTheme(isDark.value ? 'light' : 'dark', origin)
   }
 
   return { theme, isDark, setTheme, toggleTheme }

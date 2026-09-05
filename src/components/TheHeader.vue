@@ -1,9 +1,11 @@
 <script setup>
 import { RouterLink, useRoute } from 'vue-router'
 import { useTheme } from '@/composables/useTheme'
+import { useCommandPalette } from '@/composables/useCommandPalette'
 
 const route = useRoute()
 const { isDark, toggleTheme } = useTheme()
+const { open: openPalette } = useCommandPalette()
 
 const navLinks = [
   { text: 'Projects', path: '/projects' },
@@ -28,6 +30,31 @@ const navLinks = [
     </nav>
 
     <div class="header-actions">
+      <button
+        type="button"
+        class="palette-trigger"
+        aria-label="Open command palette"
+        title="Command palette (⌘K)"
+        @click="openPalette"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        <span class="kbd-hint">⌘K</span>
+      </button>
+
       <div class="social-icons">
         <a
           href="https://www.linkedin.com/in/meysam-pouryamehr-7482ab339?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
@@ -246,6 +273,44 @@ const navLinks = [
   transform: translateY(-2px);
 }
 
+/* Command palette trigger */
+.palette-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border-2);
+  background: var(--surface-2);
+  color: var(--text-faint);
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.palette-trigger:hover {
+  background: var(--surface-2-hover);
+  border-color: var(--border-strong);
+  color: var(--text-strong);
+  transform: translateY(-2px);
+}
+
+.kbd-hint {
+  font-family: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+  border: 1px solid var(--border-1);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 1px 5px;
+  background: var(--surface-1);
+}
+
 /* Theme toggle */
 .theme-toggle {
   display: inline-flex;
@@ -318,6 +383,16 @@ const navLinks = [
 
   .header-actions {
     gap: 0.75rem;
+  }
+
+  .palette-trigger {
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  /* The shortcut hint is useless on touch devices */
+  .kbd-hint {
+    display: none;
   }
 
   .theme-toggle {

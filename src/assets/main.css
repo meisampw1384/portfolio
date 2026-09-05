@@ -232,6 +232,15 @@ a {
   background: var(--border-strong);
 }
 
+/* 10. View Transitions — circular theme wipe (see useTheme.js).
+   Disable the default cross-fade so only the expanding-circle
+   animation on the new snapshot plays. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 /* 9. App container */
 #app {
   width: 100%;

@@ -52,6 +52,12 @@ export const vAnimate = {
     const { animation, delay, duration } = getOptions(binding)
     const anim = ANIMATIONS[animation] || ANIMATIONS['fade-up']
 
+    // Respect users who prefer reduced motion: show content immediately.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      Object.assign(el.style, anim.to)
+      return
+    }
+
     // Set initial state
     Object.assign(el.style, anim.from)
     el.style.transition = `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`

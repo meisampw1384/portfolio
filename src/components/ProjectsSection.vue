@@ -110,6 +110,9 @@ function handleTilt(event) {
   const rotateY = ((x - centerX) / centerX) * 6
 
   card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`
+  // Drive the cursor spotlight from the same handler
+  card.style.setProperty('--spot-x', `${x}px`)
+  card.style.setProperty('--spot-y', `${y}px`)
 }
 
 function resetTilt(event) {
@@ -217,6 +220,7 @@ function resetTilt(event) {
 
 /* --- Project Card with 3D Tilt --- */
 .project-card {
+  position: relative;
   background: var(--card-gradient);
   backdrop-filter: blur(6px);
   border: 1px solid var(--border-1);
@@ -225,11 +229,39 @@ function resetTilt(event) {
   box-shadow: var(--shadow-md);
   transition:
     transform 0.15s ease-out,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   display: flex;
   flex-direction: column;
   transform-style: preserve-3d;
   will-change: transform;
+}
+
+/* Cursor spotlight: a soft glow that follows the pointer.
+   --spot-x / --spot-y are set by the mousemove handler. */
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    480px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgb(56 152 236 / 0.13),
+    transparent 45%
+  );
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card::after {
+    display: none;
+  }
 }
 
 .project-card:hover {

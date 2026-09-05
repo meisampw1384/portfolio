@@ -1,12 +1,56 @@
 <script setup>
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import TypingEffect from './TypingEffect.vue'
 
 const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Lifelong Learner']
+
+const finePointer = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches
+const motionOK = () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+// Magnetic CTA: the button drifts toward the cursor while it hovers.
+const ctaEl = ref(null)
+
+// RouterLink refs give the component instance; resolve its root <a> element.
+function ctaDomEl() {
+  if (!ctaEl.value) return null
+  return ctaEl.value.$el ?? ctaEl.value
+}
+
+function magnetMove(e) {
+  if (!finePointer() || !motionOK()) return
+  const el = ctaDomEl()
+  if (!el) return
+  const rect = el.getBoundingClientRect()
+  const relX = e.clientX - (rect.left + rect.width / 2)
+  const relY = e.clientY - (rect.top + rect.height / 2)
+  el.style.transform = `translate(${relX * 0.25}px, ${relY * 0.35}px)`
+}
+
+function magnetReset() {
+  const el = ctaDomEl()
+  if (el) el.style.transform = ''
+}
+
+// Subtle parallax on the background orbs as the cursor moves across the hero.
+function heroParallax(e) {
+  if (!finePointer() || !motionOK()) return
+  const el = e.currentTarget
+  const rect = el.getBoundingClientRect()
+  const x = (e.clientX - rect.left) / rect.width - 0.5
+  const y = (e.clientY - rect.top) / rect.height - 0.5
+  el.style.setProperty('--par-x', x.toFixed(3))
+  el.style.setProperty('--par-y', y.toFixed(3))
+}
+
+function heroParallaxReset(e) {
+  e.currentTarget.style.setProperty('--par-x', 0)
+  e.currentTarget.style.setProperty('--par-y', 0)
+}
 </script>
 
 <template>
-  <section class="hero-section">
+  <section class="hero-section" @mousemove="heroParallax" @mouseleave="heroParallaxReset">
     <!-- Animated mesh gradient background -->
     <div class="hero-bg">
       <div class="gradient-orb orb-1"></div>
@@ -35,9 +79,12 @@ const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Life
           I'm a&nbsp;<TypingEffect :words="roles" />
         </p>
         <RouterLink
+          ref="ctaEl"
           to="/projects"
           class="cta-button"
           v-animate="{ animation: 'zoom-in', delay: 450 }"
+          @mousemove="magnetMove"
+          @mouseleave="magnetReset"
         >
           View My Work
           <svg
@@ -78,6 +125,10 @@ const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Life
   inset: 0;
   overflow: hidden;
   z-index: 0;
+  /* Cursor parallax: the whole backdrop drifts opposite to the pointer.
+     --par-x / --par-y are set by the mousemove handler on the section. */
+  transform: translate(calc(var(--par-x, 0) * -18px), calc(var(--par-y, 0) * -12px));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .gradient-orb {
@@ -268,14 +319,11 @@ const roles = ['Backend Developer', 'Django Enthusiast', 'Problem Solver', 'Life
   padding: 14px 32px;
   border-radius: 50px;
   text-decoration: none;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
+  /* Inline transform (magnetic effect) needs a smooth catch-up */
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
   background: var(--glass-bg-hover);
 }

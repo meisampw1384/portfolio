@@ -2,6 +2,7 @@
 import HeroSection from '@/components/HeroSection.vue'
 import TechStack from '@/components/TechStack.vue'
 import CurrentlyWorkingOn from '@/components/CurrentlyWorkingOn.vue'
+import StatCounter from '@/components/StatCounter.vue'
 import { RouterLink } from 'vue-router'
 
 const featuredProjects = [
@@ -43,15 +44,15 @@ const featuredProjects = [
         </p>
         <div class="about-stats">
           <div class="stat">
-            <span class="stat-number">10+</span>
+            <span class="stat-number"><StatCounter value="10+" /></span>
             <span class="stat-label">Projects</span>
           </div>
           <div class="stat">
-            <span class="stat-number">6+</span>
+            <span class="stat-number"><StatCounter value="6+" /></span>
             <span class="stat-label">Languages</span>
           </div>
           <div class="stat">
-            <span class="stat-number">3+</span>
+            <span class="stat-number"><StatCounter value="3+" /></span>
             <span class="stat-label">Frameworks</span>
           </div>
         </div>
