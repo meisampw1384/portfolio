@@ -9,10 +9,6 @@ import { RouterLink } from 'vue-router'
         Designed &amp; built by
         <RouterLink to="/" class="footer-name">Meysam Pouryamehr</RouterLink>
       </p>
-      <p class="footer-tech">Vue 3 · Vite · zero UI libraries</p>
-      <p class="footer-hint">
-        Press <kbd>⌘</kbd><kbd>K</kbd> anywhere to jump around
-      </p>
     </div>
   </footer>
 </template>
